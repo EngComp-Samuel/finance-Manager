@@ -39,11 +39,7 @@ fun CardsPainel(modifier: Modifier, valor: Float, label: String){
 @Composable
 fun CardsPainelInfoApp(texto: String){
 
-    Card(modifier = Modifier.fillMaxWidth().padding(all = 15.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.onPrimary,
-            contentColor = MaterialTheme.colorScheme.onSurfaceVariant
-    )){
+    Card(modifier = Modifier.fillMaxWidth().padding(all = 15.dp)){
         Column(verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(15.dp)

@@ -290,30 +290,28 @@ fun SimpleNestedDonutChartWithInnerLabels(
 @Composable
 fun HomeScreen(){
     Column(
-        modifier = Modifier.fillMaxWidth()
-            .verticalScroll(rememberScrollState()
-            ),
+        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
 
         CardsPainelInfoApp(
             texto = "Inf dos contatos aqui"
         )
-        Row(modifier = Modifier.padding(20.dp)){
+        Row(modifier = Modifier.fillMaxWidth(0.9f).padding(bottom = 10.dp)){
             CardsPainel(modifier = Modifier.padding(10.dp), valor = 100f, label = "Receitas")
             CardsPainel(modifier = Modifier.padding(10.dp), valor = -100f, label = "Despesas")
             CardsPainel(modifier = Modifier.padding(10.dp), valor = 100f, label = "Saldo")
         }
-        Row(modifier = Modifier.padding(20.dp)){
+        Row(modifier = Modifier.fillMaxWidth(0.9f).padding(bottom = 50.dp)){
             CardsPainel(modifier = Modifier.padding(10.dp), valor = 100f, label = "Receitas")
             CardsPainel(modifier = Modifier.padding(10.dp), valor = -100f, label = "Despesas")
             CardsPainel(modifier = Modifier.padding(10.dp), valor = 100f, label = "Saldo")
         }
 
-        /*SimpleNestedDonutChartWithInnerLabels(
-            modifier = Modifier.size(300.dp),
+        SimpleNestedDonutChartWithInnerLabels(
+            modifier = Modifier.size(300.dp).padding(bottom = 10.dp),
             holeRadiusRatio = 0.3f
-        )*/
+        )
     }
 }
 
