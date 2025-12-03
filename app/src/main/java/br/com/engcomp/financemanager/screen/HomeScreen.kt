@@ -9,9 +9,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 import androidx.compose.foundation.Canvas
+
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 
 import androidx.compose.ui.geometry.Offset
@@ -22,6 +27,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextMeasurer
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
@@ -36,6 +42,8 @@ import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
 import androidx.compose.ui.text.style.TextAlign
+import br.com.engcomp.financemanager.screen.componentes.CardsPainel
+import br.com.engcomp.financemanager.screen.componentes.CardsPainelInfoApp
 
 import kotlin.math.PI
 
@@ -203,7 +211,7 @@ private fun DrawScope.drawSegmentLabel(
     // Medir o texto
     val textLayoutResult = textMeasurer.measure(
         text = annotatedString,
-        style = androidx.compose.ui.text.TextStyle(
+        style = TextStyle(
             textAlign = TextAlign.Center
         )
     )
@@ -282,14 +290,37 @@ fun SimpleNestedDonutChartWithInnerLabels(
 @Composable
 fun HomeScreen(){
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxWidth()
+            .verticalScroll(rememberScrollState()
+            ),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
-        Text("Home")
-        SimpleNestedDonutChartWithInnerLabels(
+
+        CardsPainelInfoApp(
+            texto = "Inf dos contatos aqui"
+        )
+        Row(modifier = Modifier.padding(20.dp)){
+            CardsPainel(modifier = Modifier.padding(10.dp), valor = 100f, label = "Receitas")
+            CardsPainel(modifier = Modifier.padding(10.dp), valor = -100f, label = "Despesas")
+            CardsPainel(modifier = Modifier.padding(10.dp), valor = 100f, label = "Saldo")
+        }
+        Row(modifier = Modifier.padding(20.dp)){
+            CardsPainel(modifier = Modifier.padding(10.dp), valor = 100f, label = "Receitas")
+            CardsPainel(modifier = Modifier.padding(10.dp), valor = -100f, label = "Despesas")
+            CardsPainel(modifier = Modifier.padding(10.dp), valor = 100f, label = "Saldo")
+        }
+
+        /*SimpleNestedDonutChartWithInnerLabels(
             modifier = Modifier.size(300.dp),
             holeRadiusRatio = 0.3f
-        )
+        )*/
     }
 }
+
+@Composable
+fun PainelIndicadores(){
+
+}
+
+
 

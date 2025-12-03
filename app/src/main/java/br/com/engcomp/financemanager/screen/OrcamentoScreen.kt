@@ -518,8 +518,8 @@ private fun DrawScope.drawSegmentLabel(
     val labelRadius = radius - (strokeWidth / 2) + labelStyle.verticalOffset
 
     // Posição do texto
-    val textX = center.x + (1.3f * labelRadius * cos(midAngleRad))
-    val textY = center.y + (1.3f * labelRadius * sin(midAngleRad))
+    val textX = center.x + (1.48f * labelRadius * cos(midAngleRad))
+    val textY = center.y + (1.48f * labelRadius * sin(midAngleRad))
 
     // Cor do texto baseada no contraste
     val textColor = if (labelStyle.autoTextColor) {
@@ -589,7 +589,7 @@ enum class LabelContentUnico {
 @Composable
 fun SimpleDonutChart(
     modifier: Modifier = Modifier,
-    strokeWidth: Dp = 60.dp,
+    strokeWidth: Dp = 80.dp,
     holeRadiusRatio: Float = 0.4f
 ) {
     val segments = listOf(
@@ -602,14 +602,14 @@ fun SimpleDonutChart(
     DonutChart(
         segments = segments,
         chartType = ChartType.DESPESA,
-        modifier = modifier,
+        modifier = Modifier.size(300.dp),
         strokeWidth = strokeWidth,
         holeRadiusRatio = holeRadiusRatio,
         showLabels = true,
         labelStyle = LabelStyleUnico(
             fontSize = 11f,
             content = LabelContentUnico.BOTH,
-            verticalOffset = -2f
+            verticalOffset = -4f
         )
     )
 }
@@ -642,7 +642,7 @@ fun DonutChartWithTitle(
             showLabels = true,
             labelStyle = LabelStyleUnico(
                 fontSize = 10f,
-                content = LabelContentUnico.PERCENTAGE_ONLY
+                content = LabelContentUnico.BOTH
             )
         )
     }

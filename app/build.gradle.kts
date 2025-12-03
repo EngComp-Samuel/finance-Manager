@@ -1,4 +1,3 @@
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -55,6 +54,7 @@ dependencies {
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.navigation.runtime.android)
     implementation(libs.androidx.compose.ui.text)
+    implementation(libs.androidx.datastore.core)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -73,5 +73,9 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     //viewModel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    //DataStore-Preference
+    implementation(libs.androidx.datastore.preferences)
+
 
 }
